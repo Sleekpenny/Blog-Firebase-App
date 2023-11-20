@@ -13,7 +13,7 @@ export class FrontendService {
   constructor(private fireService: AngularFirestore, private notification: CategoryServiceService) { }
 
   loadPost(){
-    return this.fireService.collection('post', ref =>ref.where('isFeatured', '==', true).limit(4)).snapshotChanges().pipe(
+    return this.fireService.collection('post', ref =>ref.where('isFeatured', '==', true).limit(3)).snapshotChanges().pipe(
       map((data) =>{
        return  data.map(a=>{
           const data = a.payload.doc.data();
