@@ -1,0 +1,8 @@
+.hideScroll::-webkit-scrollbar{
+    overflow-x: scroll;
+    display:none
+}
+
+.bgScroll{
+    background-color: var(--navbar-footer-color);
+}

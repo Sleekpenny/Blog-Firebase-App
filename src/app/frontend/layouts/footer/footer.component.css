@@ -1,0 +1,7 @@
+.footBg{
+    background-color: var(--navbar-footer-color);
+}
+
+.bgHeader{
+    background-color: var(--secondary-color);
+}

@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body {
+    
+    color : var(--body-text-color);
+    font-size: 14px;
+}
+
+:root{
+    --primary-color: #026467;
+    --secondary-color: #E5F5EA;
+    --body-text-color:#596392;
+    --navbar-footer-color: #F9F9F9
+}
+
+.boxShadow{
+    box-shadow: 0px 0px 33px -10px rgba(71, 114, 254, 0.3);
+}

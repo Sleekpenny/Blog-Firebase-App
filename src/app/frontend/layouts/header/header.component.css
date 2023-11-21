@@ -1,0 +1,7 @@
+.activelogo:active{
+    transform: translateY(-3px);
+}
+
+.bgHeader{
+    background-color: var(--secondary-color);
+}

@@ -1,0 +1,154 @@
+<div class="">
+
+    <div class="rounded bgSubs mx-auto p-4 text-center w-5/6 md:w-3/5 mb-4">
+        <p class="text-sm md:text-2xl font-bold uppercase ">{{HeaderStatus}} Post </p>
+        <p class="text-xs md:text-base">Add your new post here </p>    
+    </div>
+
+    <form class="" #form="ngForm" (submit)="onSubmit(form)">
+    <div class="p-4 md:max-w-7xl mx-auto flex gap-4 flex-col">
+        <div class="flex gap-4 flex-col md:flex-row">
+        <div class="p-2 md:p-4 w-full boxShadow">
+            
+            <div class="text-xs md:text-base ">
+                <label>Title</label>
+                <input 
+                [(ngModel)]="Titles" 
+                ngModel
+                name="title"
+                type="text" 
+                class="w-full border p-3 outline-none"
+                #title = "ngModel"                
+                required
+                [ngClass]="{'is-invalid': title.touched && title.invalid}"
+                (keyup)="onTitleChanges($event)"
+                placeholder="title">
+
+                <div *ngIf="title.touched && title.invalid">
+                    <p *ngIf="title.errors?.['required']" class="bg-orange-300 text-center p-2 text-xs md:text-base text-white rounded">Title is required</p>
+                </div>
+            </div>
+
+            <div class="text-xs md:text-base mt-4">
+                <label>Parmalink</label>
+                <input 
+                [(ngModel)]="Parmalinks" 
+                ngModel
+                name="parmalink"
+                type="text" 
+                class="w-full border p-3 outline-none bg-gray-200"
+                #parmalink = "ngModel" 
+                disabled>        
+            </div>
+
+            <div class="text-xs md:text-base mt-4">
+                <label>Excerpt</label>
+                <textarea
+                [(ngModel)]="excerpts" 
+                ngModel
+                name="excerpt"
+                type="text" 
+                class="w-full border p-3 outline-none"
+                #excerpt = "ngModel"                
+                required
+                [ngClass]="{'is-invalid': excerpt.touched && excerpt.invalid}"
+                id="" cols="30" rows="10"
+                placeholder="excerpt">
+                </textarea>
+
+                <div *ngIf="excerpt.touched && excerpt.invalid">
+                    <p *ngIf="excerpt.errors?.['required']" class="bg-orange-300 text-center p-2 text-xs md:text-base text-white rounded">Excerpt is required</p>
+                </div>
+            </div>
+            </div>
+
+            <div class="p-2 md:p-4 w-full boxShadow">
+
+                <div>
+                <div>
+                <label class="w-full"> Please select a post category</label>
+                <select  
+                class="w-full border outline-none p-3"
+                [(ngModel)]="posts" 
+                ngModel
+                name="categoryPost"
+                type="text" 
+                class="w-full border p-3 outline-none"
+                #post = "ngModel"                
+                required
+                [ngClass]="{'is-invalid': post.touched && post.invalid}">
+                    
+                    <option value="" disabled>Select a category</option>
+                    <option value="{{category.id}}-{{category.data.category}}" *ngFor="let category of categoryItems">{{category.data.category}}</option>
+                </select>
+
+                <div *ngIf="post.touched && post.invalid">
+                    <p *ngIf="post.errors?.['required']" class="bg-orange-300 text-center p-2 text-xs md:text-base text-white rounded">Select a post</p>
+                </div>
+            </div>
+
+                <div class="text-xs md:text-base mt-4">
+                    <label>Choose a display Image</label>
+
+                <input type="file"
+                    [(ngModel)]="Images" 
+                    ngModel
+                    name="image"            
+                    class="w-full border p-3 outline-none"
+                    #image = "ngModel"                
+                    required
+                    [ngClass]="{'is-invalid': image.touched && image.invalid}"
+                    accept="image/*"
+                    (change)="showPictures($event)"> 
+
+                    <div *ngIf="image.touched && image.invalid">
+                        <p *ngIf="image.errors?.['required']" class="bg-orange-300 text-center p-2 text-xs md:text-base text-white rounded">Select an Image</p>
+                    </div>
+                </div>
+
+                <div>
+                <img [src]="ImgSrc" alt="" class="md:h-80 h-40 mx-auto mt-4">
+                </div>
+                </div>
+
+            </div>
+            </div>
+
+            <div class="">
+                
+                <div class="text-xs md:text-base boxShadow">
+                    <label>Content</label>
+
+                    <angular-editor
+                    [(ngModel)]="contents" 
+                    ngModel
+                    name="content"
+                    type="text" 
+                    class="w-full p-3 outline-none"
+                    #content = "ngModel"                
+                    required
+                    [ngClass]="{'is-invalid': content.touched && content.invalid}"
+                    placeholder="Type your story">
+                    </angular-editor>
+                                   
+
+                    <div *ngIf="content.touched && content.invalid">
+                        <p *ngIf="content.errors?.['required']" class="bg-orange-300 text-center p-2 text-xs md:text-base text-white rounded">Content is required</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="w-full justify-center p-4 flex gap-4">
+            <button class="bgButton text-white text-xs md:text-base p-2" [disabled]="form.invalid">
+                <p> {{submitStatus}} Post</p>
+            </button> 
+            <button class=" text-white p-2 border text-xs md:text-base bg-orange-400 " type="button" routerLink="/login/dashboard/blogPost">
+                <p> Back to Posts</p>
+            </button> 
+        </div>
+</form>
+
+
+
+</div>

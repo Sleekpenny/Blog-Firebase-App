@@ -1,0 +1,11 @@
+.bgPost{
+    background-color: var(--primary-color);
+}
+
+.bgCategory{
+    background-color: var(--secondary-color);
+}
+
+.bgButton{
+    background-color: var(--primary-color);
+}

@@ -1,0 +1,12 @@
+<div class=" fixed w-full top-0 h-16 bg-white  flex justify-center items-center box-Prop" [ngStyle]="navBg" >  
+    <div class="bgHeader p-2 rounded-3xl text-sm md:text-lg font-bold activelogo cursor-pointer">
+        <a routerLink="">SLEEKIE BLOG</a>
+    </div>    
+
+    <div class="absolute right-12 text-xs md:text-base gap-4 hidden md:flex" *ngIf="isLoggedIn$ | async">
+        <p class="p-2 px-4">{{userData}}</p>
+        <button class="bg-red-600 rounded text-white p-2 px-4 w-fit text-right" (click)="signOut()" >Sign Out</button>
+    </div>
+
+ 
+</div>

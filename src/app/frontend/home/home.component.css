@@ -1,0 +1,12 @@
+.scrollBar::-webkit-scrollbar{
+    display:none
+}
+
+.bgFeatuerd{
+    background-color: var(--primary-color);
+    
+}
+
+.textSize{
+    font-size: 20px;
+}

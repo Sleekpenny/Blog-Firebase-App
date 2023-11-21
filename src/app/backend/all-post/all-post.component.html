@@ -1,0 +1,49 @@
+
+<div class="rounded bgCategory p-8 md:max-w-7xl mx-auto m-4 text-center ">
+    <p class="textColor text-xs text-center font-bold md:text-3xl "> All Blog Posts</p>
+    <p class="text-xs md:text-base text-center">Manage your post here</p>
+
+    <button class="bgPost mr-4 text-white text-xs md:text-base mt-4 p-3" type="button" routerLink="/login/dashboard/blogPost/newPost">
+        <p>Add New Post</p>
+    </button>
+    <button class="bg-orange-400 text-white text-xs md:text-base mt-4 p-3" type="button" routerLink="/login/dashboard">
+        <p>Back to DashBoard</p>
+    </button>
+</div>
+
+<table class="table-auto md:mb-72 text-xs md:text-base text-justify p-4 m-4 mx-auto max-w-7xl">
+    <thead>
+        <tr class="bg-gray-400/20 ">
+            <th class="w-14 p-2">No</th>
+            <th class="w-36 p-2">Image Preview</th>
+            <th class="w-32 p-2">Title</th>            
+            <th class="w-32 p-2">Category</th>            
+            <th class="w-32 p-2">Excerpt</th>
+            <th class="w-32 p-2">Date</th>
+            <th class="w-56">Action</th>
+        </tr>
+    </thead>
+
+    <tbody class="boxShadow text-justify">
+        <tr *ngFor="let post of posts; let i = index ">
+            <td class="w-4 p-2 ">{{i+1}}</td>
+            <td class="w-80 h-20  p-2"> <img src="{{post.data.image}}" alt="{{post.data.image}}" class="w-44 h-36"> </td>
+            <td class="w-12 h-8  p-2 ">{{post.data.title}}</td>
+            <td class="w-12 h-8  p-2 ">{{post.data.categoryPost.category}}</td>
+            <td class="w-12 h-8  p-2 overflow-hidden">{{post.data.excerpt}}</td>
+            <td class="w-12 h-8  p-2 ">{{post.data.createdAt.toMillis() | date}}</td>
+            <td class="w-56 flex gap-4 flex-col justify-center ">
+                <div class="flex gap-2 w-full mx-auto ">
+                <button class="bgButton text-white text-xs md:text-base  p-3 w-full " type="button" routerLink="/login/dashboard/blogPost/newPost" [queryParams]="{id: post.id}">Update</button>
+                <button class="bg-red-600 text-white text-xs md:text-base p-3 w-full" type="button" (click)="onDelete(post.data.image,post.id)" >Delete</button>
+                </div>
+
+                <div class="flex gap-2 justify-center">
+                <button class="bg-green-600 text-white text-xs md:text-base  p-3 w-full" type="button" *ngIf="!post.data.isFeatured" (click)="onFeatured(post.id, true)" >Featured</button>
+                <button class="bg-red-600 text-white text-xs md:text-base  p-3 w-full " type="button" *ngIf="post.data.isFeatured" (click)="onFeatured(post.id, false)"> Un-Featured</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
