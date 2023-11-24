@@ -1,7 +1,7 @@
 
          
         <div class=" flex justify-center paddingRound p-4">
-            <img src="{{ postDetails.image}}" alt="" class=" w-8/12 Maxheight">
+            <img src="{{ postDetails.image}}" alt="" class=" w-8/12 Maxheight h-64 md:h-full">
         </div >
 
 
@@ -53,7 +53,7 @@
             <div class="postCardWrapper mt-4"  *ngFor="let postCard of similarPost">
                 <div class="boxShadow md:w-96 w-72 p-2 cursor-pointer px-2" [routerLink]='["/posts", postCard.id]'>
                     <div>
-                        <img src="{{postCard.data.image}}" alt="" class="w-full md:w-96 h-40 md:h-96">
+                        <img src="{{postCard.data.image}}" alt="" class="w-full md:w-96 h-20 md:h-96">
                     </div >
                     <div class="bg-white p-4 h-44 md:h-fit">
                     <div class="flex gap-4 text-sm md:text-base " >

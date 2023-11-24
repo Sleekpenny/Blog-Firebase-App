@@ -20,7 +20,8 @@
                 <p class="text-blue-600">Views - {{postCard.data.views}}</p>
             </div>
             <P class="text-xs md:text-xl font-bold uppercase mt-2 overflow-hidden whitespace-nowrap text-ellipsis"> {{postCard.data.title}}</P>
-            <p class="mt-2 w-full overflow-hidden h-24  text-justify md:text-base text-xs mb-4">{{postCard.data.excerpt}}</p>
+            <p class="mt-2 w-full overflow-hidden h-8  text-justify md:text-base text-xs mb-4">{{postCard.data.excerpt}}</p>
+            <p class="mt-2 w-full overflow-hidden md:h-24 h-12 text-justify md:text-base text-xs "  [innerHTML]="postCard.data.content" ></p>
             <p class="text-blue-600 font-bold mt-2 text-xs md:text-base "> Last updated {{postCard.data.createdAt.toMillis() |date}}</p>
         </div>
     </div>
