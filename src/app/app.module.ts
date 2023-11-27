@@ -65,8 +65,8 @@ import { LoginPageComponent } from './backend/login-page/login-page.component';
     HttpClientModule,
     AngularEditorModule,
     AngularFireStorageModule,
-    AngularFireAuthModule,
-    
+    AngularFireAuthModule,  
+   
     
   ],
   providers: [],

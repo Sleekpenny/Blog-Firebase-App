@@ -53,7 +53,7 @@
             <div class="postCardWrapper mt-4"  *ngFor="let postCard of similarPost">
                 <div class="boxShadow md:w-96 w-72 p-2 cursor-pointer px-2" [routerLink]='["/posts", postCard.id]'>
                     <div>
-                        <img src="{{postCard.data.image}}" alt="" class="w-full md:w-96 h-20 md:h-96">
+                        <img src="{{postCard.data.image}}" alt="" class="w-full md:w-96 h-40 md:h-96">
                     </div >
                     <div class="bg-white p-4 h-44 md:h-fit">
                     <div class="flex gap-4 text-sm md:text-base " >
@@ -62,7 +62,7 @@
                         <p class="text-blue-600">Views - {{postCard.data.views}}</p>
                     </div>
                     <P class="text-xs md:text-xl font-bold uppercase mt-2 overflow-hidden whitespace-nowrap text-ellipsis">{{postCard.data.title}} </P>
-                    <p class="mt-2 w-full overflow-hidden md:h-24 h-12 text-justify md:text-base text-xs mb-4">{{postCard.data.content}}</p>
+                    <p class="mt-2 w-full overflow-hidden md:h-24 h-8 text-justify md:text-base text-xs mb-2" [innerHTML]="postDetails.content"></p>
                     <p class="text-blue-600 font-bold mt-2 text-xs md:text-base "> Last updated {{postCard.data.createdAt.toMillis() |date}}</p>
                 </div>
             </div>
